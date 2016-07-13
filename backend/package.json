@@ -1,0 +1,25 @@
+{
+  "name": "rest-ionic",
+  "version": "1.0.0",
+  "description": "An ionic app that uses a REST API and authentication to make requests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ionic",
+    "nodejs",
+    "authentication",
+    "REST",
+    "angular2"
+  ],
+  "author": "Alex Tsiras",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "body-parser": "^1.15.2",
+    "jwt-simple": "^0.5.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.1.0"
+  }
+}
