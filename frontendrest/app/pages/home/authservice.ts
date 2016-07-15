@@ -72,6 +72,22 @@ export class AuthService {
 		});
 	}
 
+	getinfo() {
+		return new Promise(resolve => {
+			var headers = new Headers();
+			this.loadUserCredentials();
+
+			headers.append('Authorization', 'Bearer ' + this.AuthToken);
+			this.http.get('http://localhost:3333/getinfo', {headers: headers}).subscribe(data => {
+				if (data.json().success) {
+					resolve(data.json());
+				} else {
+					resolve(false);
+				}
+			});
+		});
+	}
+
 	logout() {
 		this.destroyUserCredentials();
 	}

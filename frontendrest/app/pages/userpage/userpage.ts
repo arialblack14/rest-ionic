@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Alert } from 'ionic-angular';
 import { AuthService } from '../home/authservice';
 import { HomePage } from '../home/home';
 
 @Component({
   templateUrl: 'build/pages/userpage/userpage.html',
-  providers: [[AuthService], [NavController]]
+  providers: [AuthService]
 })
 export class UserPage {
   nav: any;
@@ -17,6 +17,19 @@ export class UserPage {
   }
   logout() {
   	this.authService.logout();
-  	this.nav.push(HomePage);
+  	this.nav.setRoot(HomePage);
+  }
+
+  getinfo() {
+  	this.authService.getinfo().then(data => {
+  		if (data.success) {
+  			var alert = Alert.create({
+  				title: data.success,
+  				subTitle: data.msg,
+  				buttons: ['ok']
+  			});
+  			this.nav.present(alert);
+  		}
+  	});
   }
 }

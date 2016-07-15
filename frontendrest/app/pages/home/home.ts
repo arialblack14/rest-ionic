@@ -31,6 +31,6 @@ export class HomePage {
   }
 
   signup() {
-  	this.nav.setRoot(Signup);
+  	this.nav.push(Signup);
   }
 }
